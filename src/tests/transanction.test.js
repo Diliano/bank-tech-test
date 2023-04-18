@@ -14,4 +14,19 @@ describe('Transaction', () => {
     expect(transaction.amount).toBe(amount);
   });
 
+  describe('formatForDisplay', () => {
+    it('returns a credit transaction string formatted for display', () => {
+      const date = new Date('2023-01-01');
+      const type = 'credit';
+      const amount = 100;
+      const balance = 200;
+
+      const transaction = new Transaction(date, type, amount);
+
+      const statement = transaction.formatForDisplay(balance);
+
+      expect(statement).toBe('01/01/2023 || 100.00 ||  || 200.00');
+    });
+  });
+
 });
