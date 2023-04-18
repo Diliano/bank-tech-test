@@ -26,6 +26,6 @@ class Transaction {
     return `${formattedDate} || ${credit} || ${debit} || ${formattedBalance}`;
   }
 
-};
+}
 
 module.exports = Transaction;
