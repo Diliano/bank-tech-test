@@ -12,7 +12,7 @@ A simple banking system that allows users to deposit, withdraw, and print an acc
 6. [Interacting with the Code](#interacting-with-the-code)
 7. [Example](#example)
 
-## Specification
+## 1. Specification
 
 ### Requirements
 
@@ -36,7 +36,7 @@ date || credit || debit || balance
 10/01/2023 || 1000.00 || || 1000.00
 ```
 
-## Approach
+## 2. Approach
 
 The system consists of two classes: `Account` and `Transaction`. The `Account` class is responsible for managing the balance and the list of transactions, while the `Transaction` class is responsible for storing the details of a single transaction.
 
@@ -44,7 +44,7 @@ The project is implemented using JavaScript and Jest is used for testing.
 
 ![Sequence Diagram](./images/sequence_diagram.png)
 
-## Installation
+## 3. Installation
 
 To set up the project, follow these steps:
 
@@ -61,7 +61,7 @@ cd bank-tech-test
 npm install
 ```
 
-## Running the Tests
+## 4. Running the Tests
 
 To run the tests, execute the following command:
 
@@ -69,7 +69,7 @@ To run the tests, execute the following command:
 jest
 ```
 
-## Test Coverage
+## 5. Test Coverage
 
 The tests provide full coverage of the application's functionality. You can view the test coverage by running the following command:
 
@@ -79,7 +79,7 @@ jest --coverage
 
 ![Test Coverage](./images/test_coverage.png)
 
-## Interacting with the code
+## 6. Interacting with the code
 
 1. Create a new JavaScript file (e.g., `myAccount.js`) in the project directory.
 
@@ -109,7 +109,7 @@ jest --coverage
    node myAccount.js
    ```
 
-## Example
+## 7. Example
 
 To see a simple example, run the `example.js` file:
 
