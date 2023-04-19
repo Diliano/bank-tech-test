@@ -65,7 +65,7 @@ jest --coverage
    const myAccount = new Account();
    ```
 
-3. Add deposits and withdrawals to your account using the `deposit` and `withdraw` methods:
+3. Add deposits and withdrawals to your account using the `deposit` and `withdraw` methods, for example:
 
    ```javascript
    myAccount.deposit(500);
@@ -92,7 +92,9 @@ To see a simple example, run the `example.js` file:
 node example.js
 ```
 
-This script demonstrates depositing 1000, withdrawing 500, and printing the account statement after each action. The JavaScript code being run in `example.js` is as follows:
+This script demonstrates depositing 1000, withdrawing 500 and printing the account statement after each action. 
+
+The JavaScript code being run in `example.js` is as follows:
 
 ```javascript
 const Account = require('./src/account');
