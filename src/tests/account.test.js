@@ -51,6 +51,16 @@ describe('Account', () => {
       expect(account.transactions[1].type).toBe('debit');
       expect(account.balance).toBe(100);
     });
+
+    it('throws an error if the withdrawal amount is zero or negative', () => {
+      const account = new Account;
+
+      const firstAmount = 0;
+      const secondAmount = -100;
+
+      expect(() => account.withdraw(firstAmount)).toThrow('Withdrawal amount must be greater than zero');
+      expect(() => account.withdraw(secondAmount)).toThrow('Withdrawal amount must be greater than zero');
+    });
   });
 
   describe('printStatement', () => {
