@@ -61,7 +61,7 @@ jest --coverage
 2. In `myAccount.js`, require the `Account` class and create a new `Account` instance:
 
    ```javascript
-   const Account = require('./account');
+   const Account = require('./src/account');
    const myAccount = new Account();
    ```
 
@@ -95,13 +95,15 @@ node example.js
 This script demonstrates depositing 1000, withdrawing 500, and printing the account statement after each action. The JavaScript code being run in `example.js` is as follows:
 
 ```javascript
-const Account = require('./account');
+const Account = require('./src/account');
 const myAccount = new Account();
 
 myAccount.deposit(1000);
+console.log('After depositing 1000:');
 console.log(myAccount.printStatement());
 
 myAccount.withdraw(500);
+console.log('After withdrawing 500:');
 console.log(myAccount.printStatement());
 ```
 
