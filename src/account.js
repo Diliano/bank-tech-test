@@ -14,6 +14,13 @@ class Account {
     this.balance += amount;
   }
 
+  withdraw(amount) {
+    const date = new Date();
+    const transaction = new Transaction(date, 'debit', amount);
+    this.transactions.push(transaction);
+    this.balance -= amount;
+  }
+
 }
 
 module.exports = Account;
