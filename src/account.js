@@ -11,10 +11,7 @@ class Account {
     if (amount <= 0) {
       throw new Error('Deposit amount must be greater than zero');
     } else {
-      const date = new Date();
-      const transaction = new Transaction(date, 'credit', amount);
-      this.transactions.push(transaction);
-      this.balance += amount;
+      this.createTransaction('credit', amount);
     }
   }
 
@@ -26,10 +23,7 @@ class Account {
       throw new Error('Insufficient funds for withdrawal');
     }
 
-    const date = new Date();
-    const transaction = new Transaction(date, 'debit', amount);
-    this.transactions.push(transaction);
-    this.balance -= amount;
+    this.createTransaction('debit', amount);
   }
 
   printStatement() {
@@ -50,6 +44,18 @@ class Account {
 
     return `${header}\n` +
            `${formattedTransactions.join('\n')}`;
+  }
+
+  createTransaction(type, amount) {
+    const date = new Date();
+    const transaction = new Transaction(date, type, amount);
+    this.transactions.push(transaction);
+
+    if (type === 'credit') {
+      this.balance += amount;
+    } else {
+      this.balance -= amount;
+    }
   }
 
   formatTransaction(transaction, balance) {
