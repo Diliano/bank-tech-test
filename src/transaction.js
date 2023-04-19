@@ -1,5 +1,5 @@
 class Transaction {
-
+  // constructs a new Transaction object with a date, type and amount
   constructor(date, type, amount) {
     this.date = date;
     this.type = type;
@@ -16,13 +16,13 @@ class Transaction {
 
     let credit = '';
     let debit = '';
-
+    // sets the credit or debit column based on transaction type
     if (this.type === 'credit') {
       credit = formattedAmount;
     } else {
       debit = formattedAmount;
     }
-
+    // returns the formatted string
     return `${formattedDate} || ${credit} || ${debit} || ${formattedBalance}`;
   }
 
