@@ -61,6 +61,17 @@ describe('Account', () => {
       expect(() => account.withdraw(firstAmount)).toThrow('Withdrawal amount must be greater than zero');
       expect(() => account.withdraw(secondAmount)).toThrow('Withdrawal amount must be greater than zero');
     });
+
+    it('throws an error if the withdrawal amount is greater than the balance', () => {
+      const account = new Account;
+
+      const depositAmount = 100;
+      account.deposit(depositAmount);
+
+      const withdrawAmount = 300;
+      
+      expect(() => account.withdraw(withdrawAmount)).toThrow('Insufficient funds for withdrawal');
+    });
   });
 
   describe('printStatement', () => {

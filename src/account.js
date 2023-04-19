@@ -21,12 +21,15 @@ class Account {
   withdraw(amount) {
     if (amount <= 0) {
       throw new Error('Withdrawal amount must be greater than zero');
-    } else {
-      const date = new Date();
-      const transaction = new Transaction(date, 'debit', amount);
-      this.transactions.push(transaction);
-      this.balance -= amount;
+    } 
+    if (amount > this.balance) {
+      throw new Error('Insufficient funds for withdrawal');
     }
+
+    const date = new Date();
+    const transaction = new Transaction(date, 'debit', amount);
+    this.transactions.push(transaction);
+    this.balance -= amount;
   }
 
   printStatement() {
