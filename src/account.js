@@ -21,6 +21,30 @@ class Account {
     this.balance -= amount;
   }
 
+  printStatement() {
+    const header = 'date || credit || debit || balance';
+    let balance = this.balance;
+    const formattedTransactions = [];
+    
+    for (let i = this.transactions.length - 1 ; i >= 0 ; i --) {
+      const transaction = this.transactions[i];
+      formattedTransactions.push(this.formatTransaction(transaction, balance));
+
+      if (transaction.type === 'credit') {
+        balance -= transaction.amount;
+      } else {
+        balance += transaction.amount;
+      }
+    }
+
+    return `${header}\n` +
+           `${formattedTransactions.join('\n')}`;
+  }
+
+  formatTransaction(transaction, balance) {
+    return transaction.formatForDisplay(balance);
+  }
+
 }
 
 module.exports = Account;

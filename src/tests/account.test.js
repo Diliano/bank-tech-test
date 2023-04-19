@@ -11,7 +11,7 @@ describe('Account', () => {
   });
 
   describe('deposit', () => {
-    it('creates a new credit transaction, adds it to the transaction array and updates the balance', () => {
+    it('creates a new credit transaction, adds it to the transactions array and updates the balance', () => {
       const account = new Account;
       const amount = 100;
 
@@ -26,7 +26,7 @@ describe('Account', () => {
   });
 
   describe('withdraw', () => {
-    it('creates a new debit transaction, adds it to the transaction array and updates the balance', () => {
+    it('creates a new debit transaction, adds it to the transactions array and updates the balance', () => {
       const account = new Account;
 
       const depositAmount = 200;
@@ -40,6 +40,24 @@ describe('Account', () => {
       expect(account.transactions[1].amount).toBe(withdrawAmount);
       expect(account.transactions[1].type).toBe('debit');
       expect(account.balance).toBe(100);
+    });
+  });
+
+  describe('printStatement', () => {
+    it('prints a correctly formatted statement', () => {
+      const account = new Account;
+      
+      const depositAmount = 200;
+      account.deposit(depositAmount);
+
+      const withdrawAmount = 100;
+      account.withdraw(withdrawAmount);
+
+      const display = 'date || credit || debit || balance\n' +
+                      `${account.transactions[1].date.toLocaleDateString('en-GB')} ||  || 100.00 || 100.00\n` +
+                      `${account.transactions[0].date.toLocaleDateString('en-GB')} || 200.00 ||  || 200.00`;
+
+      expect(account.printStatement()).toBe(display);
     });
   });
 
