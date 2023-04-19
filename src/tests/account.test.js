@@ -23,6 +23,16 @@ describe('Account', () => {
       expect(account.transactions[0].type).toBe('credit');
       expect(account.balance).toBe(amount);
     });
+
+    it('throws an error if the deposit amount is zero or negative', () => {
+      const account = new Account;
+
+      const firstAmount = 0;
+      const secondAmount = -100;
+
+      expect(() => account.deposit(firstAmount)).toThrow('Deposit amount must be greater than zero');
+      expect(() => account.deposit(secondAmount)).toThrow('Deposit amount must be greater than zero');
+    });
   });
 
   describe('withdraw', () => {

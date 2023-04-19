@@ -8,10 +8,14 @@ class Account {
   }
 
   deposit(amount) {
-    const date = new Date();
-    const transaction = new Transaction(date, 'credit', amount);
-    this.transactions.push(transaction);
-    this.balance += amount;
+    if (amount <= 0) {
+      throw new Error('Deposit amount must be greater than zero');
+    } else {
+      const date = new Date();
+      const transaction = new Transaction(date, 'credit', amount);
+      this.transactions.push(transaction);
+      this.balance += amount;
+    }
   }
 
   withdraw(amount) {
