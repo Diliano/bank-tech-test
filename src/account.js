@@ -33,7 +33,7 @@ class Account {
     // iterates through transactions in reverse order and formats each transaction
     for (let i = this.transactions.length - 1 ; i >= 0 ; i --) {
       const transaction = this.transactions[i];
-      formattedTransactions.push(this.formatTransaction(transaction, balance));
+      formattedTransactions.push(transaction.formatForDisplay(balance));
       // updates the balance for the next transaction in the iteration (in reverse order)
       if (transaction.type === 'credit') {
         // the credit type executes balance minus amount as the iteration is in reverse order
@@ -57,10 +57,6 @@ class Account {
     } else {
       this.balance -= amount;
     }
-  }
-  // formats the transactions for display
-  formatTransaction(transaction, balance) {
-    return transaction.formatForDisplay(balance);
   }
 
 }
