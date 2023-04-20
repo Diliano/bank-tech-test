@@ -100,7 +100,7 @@ jest --coverage
 4. Print your account statement using the `printStatement` method:
 
    ```javascript
-   console.log(myAccount.printStatement());
+   myAccount.printStatement();
    ```
 
 5. Run your script with Node.js:
@@ -127,11 +127,11 @@ const myAccount = new Account();
 
 myAccount.deposit(1000);
 console.log('After depositing 1000:');
-console.log(myAccount.printStatement());
+myAccount.printStatement();
 
 myAccount.withdraw(500);
 console.log('After withdrawing 500:');
-console.log(myAccount.printStatement());
+myAccount.printStatement();
 ```
 
 The output will look like this:
