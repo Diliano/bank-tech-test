@@ -88,7 +88,17 @@ describe('Account', () => {
                       `${account.transactions[1].date.toLocaleDateString('en-GB')} ||  || 100.00 || 100.00\n` +
                       `${account.transactions[0].date.toLocaleDateString('en-GB')} || 200.00 ||  || 200.00`;
 
-      expect(account.printStatement()).toBe(display);
+      // mock console.log
+      const logSpy = jest.spyOn(console, 'log');
+      logSpy.mockImplementation(() => {});
+
+      account.printStatement();
+
+      // check if console.log has been called with the contents of the 'display' variable
+      expect(logSpy).toHaveBeenCalledWith(display);
+
+      // restore the original console.log
+      logSpy.mockRestore();
     });
   });
 

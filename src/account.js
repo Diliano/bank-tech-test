@@ -43,8 +43,7 @@ class Account {
       }
     }
 
-    return `${header}\n` +
-           `${formattedTransactions.join('\n')}`;
+    console.log(header + '\n' + formattedTransactions.join('\n'));
   }
   // creates a transaction and updates the balance
   createTransaction(type, amount) {
